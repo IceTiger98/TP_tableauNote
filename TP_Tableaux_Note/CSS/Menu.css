@@ -1,0 +1,53 @@
+
+
+    /*Dégradé arrière plan*/
+    body{
+            background: lightgrey;
+            background: linear-gradient(to left, lightgrey, lightblue);
+     }
+    
+    /*Couleur des titres*/
+    h3{
+            color : grey;
+    }
+
+    /*Style du tableau*/
+    table,td,th{
+            padding: 2% 0 0;
+            margin: auto;
+            border : none;
+            width :50%;
+            border-collapse: collapse;
+    }
+
+    input{
+            margin : 2%;
+            border : none;
+    }
+
+    /*taille des zones de texte*/
+    .note{
+            width :70%;
+    }
+
+    /*couleur inversé entre chaque ligne...*/
+    tr:nth-child(even){
+            background-color: #E3CDEB;
+            color : black;
+    }
+
+    tr:nth-child(odd){
+            background-color: white;
+            color : black;
+    }
+
+    /*... sauf pour l'en-tête du tableau*/
+    th {
+            background-color: #633C71;
+            color: white;
+    }
+
+    /*change la couleur de fond des lignes au passage de la souris sur le tableau*/
+    tr:hover{
+            background: #E0CDE7;
+    }
