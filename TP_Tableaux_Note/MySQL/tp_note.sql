@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `table_prof` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
 
 
-INSERT INTO `table_prof` (`id_Prof`, `nom_Prof`, `prenom_Prof`, `loginProf`) VALUES
+INSERT INTO `table_prof` (`id_Prof`, `nom_Prof`, `prenom_Prof`, `login_prof`) VALUES
 (1, 'MADEMBO', 'Grace', 'gmadembo'),
 (2, 'LEHMANN', 'Nicolas', 'nlehmann'),
 (3, 'VALENTIN', 'Nicolas', 'nvalentin'),
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `table_utilisateur` (
   `id_utilisateur` int(11) NOT NULL,
   `login_utilisateur` varchar(20) COLLATE latin1_general_cs NOT NULL,
   `mdp_utilisateur` varchar(20) COLLATE latin1_general_cs NOT NULL,
-  PRIMARY KEY (`id_utilisateur`),
+  PRIMARY KEY (`id_utilisateur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
 
 
