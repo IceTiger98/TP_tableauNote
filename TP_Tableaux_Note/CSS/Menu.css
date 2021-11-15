@@ -25,9 +25,10 @@
             border : none;
     }
 
-    /*taille des zones de texte*/
+    /*zones de texte*/
     .note{
             width :70%;
+            background-color: lightgrey;
     }
 
     /*couleur inversé entre chaque ligne...*/
@@ -51,3 +52,16 @@
     tr:hover{
             background: #E0CDE7;
     }
+/*couleur des moyennes en fonction */
+    .vert{
+        color: green !important;
+    }
+
+    .orange{
+        color: orange !important;
+    }
+
+    .rouge{
+        color: red !important;
+    }
+
