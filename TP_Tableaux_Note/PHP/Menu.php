@@ -3,36 +3,20 @@
 	<head>
 		<title>Intranet (Notes)</title>
 		<meta charset="utf-8"/>
-		<link rel="shortcut icon" type="image/x-icon" href="../images/logo.png"/>
+		<!--<link rel="shortcut icon" type="image/x-icon" href="../images/logo.png"/>-->
+        <script type="text/javascript" src="../JS/function.js"></script>
         <link rel="stylesheet" href="../CSS/Menu.css" />
 	</head>
-	<body>
-
-
-    <script>
-
-    //fonction javascript qui active la zone de texte en fonction de la check box
-    function checkBox(val)
-    {
-        console.log(val);
-        let text =document.getElementById("txt"+val);
-
-                if(text.disabled == true){
-                        text.disabled = false;
-                }
-                else{
-                         text.disabled = true;
-                }
-    }
-    </script>
-
+	<body>     
 
         <?php
 			
             session_start();
             //appel du script et de la fonction de connexion à la BDD
             include("Connection.php");
-            $conn = connect_bd_PDO();
+            include ("Fonction.php");
+
+            $conn = connect_bdd_PDO();
         
             echo ("<h3> Tableau de notes</h3>") ;
 
@@ -55,17 +39,12 @@
 
         
 
-
-
-
-        //requete qui affiche les notes en fonction des eleves et des matieres
-        $reqNote = "SELECT * from table_note, table_etudiant 
-                    WHERE table_note.login_etudiant = table_etudiant.login_etudiant";
+        $note = getNote($conn);
         
         //affichage du tableau de note[Matières | Etudiants | Notes | Editer]
                         echo("<form action='' method='get'>");
         
-                            echo("<table>");
+                             echo("<table>");
                                         echo("<thead>");
                                                 echo("<tr>");
                                                     echo("<th>Matières</th>");
@@ -76,7 +55,7 @@
                                         echo("</thead>");
                                     echo("<tbody>");
             
-            $i =0;
+$i =0;
             foreach ($conn->query($reqBNote) as $row) {
                                                 echo("<tr>");
                                                     echo("<td>".$row['matiere']."</td>");
@@ -102,10 +81,8 @@
 
 
 
-        //requete qui affiche la moyenne des notes de l'eleve en fonction de matieres
-        $reqMoyenne =  "SELECT *, AVG(note) AS moyenne from table_note, table_etudiant 
-                        WHERE table_note.login_etudiant = table_etudiant.login_etudiant 
-                        GROUP BY id_etudiant";
+
+        $note = getMoyenne($conn);
 
         //affichage du tableau des moyennes [Matières | Etudiants | Moyennes]
                             echo("<table>");
@@ -128,11 +105,12 @@
         }
 
                                 echo("</tbody>");
-                            echo("</table>");
-        
-        
+                            echo("</table>");     
         
         ?>
+
+
+        
 
 </body>
 
