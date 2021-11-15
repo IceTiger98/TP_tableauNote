@@ -8,7 +8,7 @@
             define('BASE',"tp_note");
 
 
-            function connect_bd_PDO()
+            function connect_bdd_PDO()
             {
                 $dsn="mysql:dbname=".BASE.";host=".SERVER;
                 try{
